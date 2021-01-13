@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <th:block th:replace="fragments/head:: head"/>
+    <!--Menu sidebar -->
+    <script th:src="@{/js/ws.js}" type="text/javascript"></script>
+    <script th:src="@{/js/session.js}" type="text/javascript"></script>
+     <script th:src="@{/js/index.js}" type="text/javascript"></script>
+    <title>ECommerce</title>
+</head>
+
+<body style="background-color: transparent">
+<div>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- Menu -->
+        <th:block th:replace="fragments/menu :: menu"/>
+        <!-- Page -->
+        <div class="page-wrapper">
+            <th:block layout:fragment="content"/>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

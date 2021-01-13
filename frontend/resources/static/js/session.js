@@ -1,0 +1,6 @@
+const sessionUser = {
+    username:'Juan'
+};
+
+
+

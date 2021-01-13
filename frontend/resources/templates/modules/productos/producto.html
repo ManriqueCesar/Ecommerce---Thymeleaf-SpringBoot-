@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org" lang="es" layout:decorator="index">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="../../../static/css/font-awesome.min.css">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" href="../../../static/css/app.css" />
+    <link rel="stylesheet" href="../../../static/css/style.css" />
+
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../../../static/js/modules/productos/producto.js" type="text/javascript"></script>
+    <script src="../../../static/js/ws.js" type="text/javascript"></script>
+    <script src="../../../static/js/index.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<head>
+<!--    <script th:src="@{/js/modules/contratas/principal.js}" type="text/javascript"></script>-->
+    <title>Productos</title>
+</head>
+
+<style>
+    .overlay{
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left: 0px;
+    right:0px;
+    background-color: rgba(255,165,0,0.7);
+}
+/*  Displays the icon in the middle of the overlay */
+.overlay .svg-inline--fa{
+    display:block;
+    position:relative;
+    font-size:36px;
+    color:#ffffff;
+    width:15%;
+    margin-left:auto;
+    margin-right:auto;
+    top:40%;
+}
+</style>
+
+<th:block layout:fragment="content" th:remove="tag">
+   <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- Product main img -->
+                <div class="col-md-7">
+                    <div id="product-main-img">
+                        <img src="../../../static/img/mercado.png" alt="" height="400px" width="500px">
+                    </div>
+                </div>
+                <!-- /Product main img -->
+
+                <!-- Product details -->
+                <div class="col-md-5">
+                    <div class="product-details">
+                        <h2 class="product-name" id="nombre"></h2>
+                        <div>
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <a class="review-link" href="#">10 Review(s) </a>
+                        </div>
+                        <div>
+                            <h3 class="product-price">$ <span id="precio"></span>
+                                <del class="product-old-price">$9990.00</del>
+                            </h3>
+                            <span class="product-available">En Stock <span id="stock"></span></span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                     <div class="add-to-cart">
+                            <div class="qty-label">
+                                Cantidad
+                                <div class="input-number">
+                                   <input type="number" id="cantidad"/>
+                                    <a type="button" class="qty-up" id="qtyUp">+</a>
+                                    <a type="button" class="qty-down" id="qtyDown">-</a>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn" id="carritoAdd"><i class="fa fa-shopping-cart" ></i>Agrear al carrito</button>
+                        </div>
+
+                        <ul class="product-links">
+                            <li>Compartir:</li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!-- /Product details -->
+
+                <!-- Product tab -->
+                <div class="col-md-12">
+                    <div id="product-tab">
+                        <!-- product tab nav -->
+                        <ul class="tab-nav">
+                            <li class="active"><a data-toggle="tab" href="#tab1">Descripcion</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Detalles</a></li>
+                        </ul>
+                        <!-- /product tab nav -->
+
+                        <!-- product tab content -->
+                        <div class="tab-content">
+                            <!-- tab1  -->
+                            <div id="tab1" class="tab-pane fade in active">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /tab1  -->
+
+                            <!-- tab2  -->
+                            <div id="tab2" class="tab-pane fade in">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /tab2  -->
+
+                        </div>
+                        <!-- /product tab content  -->
+                    </div>
+                </div>
+                <!-- /product tab -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+   
+   <footer th:replace="fragments/footer :: footer"></footer>
+   
+    <!-- /SECTION -->
+</th:block>
+
+</html>
